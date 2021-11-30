@@ -3,8 +3,9 @@
 
 **About**
 
-This project contains solutions for xmas calendar at https://p26e.dev/.
-The solution is programmed in Kotlin.
+This project contains solutions for xmas calendar at https://p26e.dev/. 
+The solution is programmed in Kotlin.<br />
+PST xmas calendar 2020 solution is located here: https://github.com/ditlef9/pst_julekalender_2020
 
 **How to install**
 1. Download and install Git from https://git-scm.com/downloads
