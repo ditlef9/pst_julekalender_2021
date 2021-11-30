@@ -1,5 +1,7 @@
 package day01
 
+import Luke
+
 /*
  Filename: Day01.kt
  Author: Mr X
@@ -8,8 +10,10 @@ package day01
  License: http://opensource.org/licenses/gpl-license.php GNU Public License
  */
 
-class Day01 {
-    fun run() {
+class Day01: Luke() {
+    override fun day() = 1
+
+    override fun run() {
         println("Hello World")
     }
 }

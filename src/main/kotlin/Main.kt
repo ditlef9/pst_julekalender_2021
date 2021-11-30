@@ -1,6 +1,6 @@
 import day01.Day01
-import java.text.SimpleDateFormat
-import java.util.*
+import java.time.LocalDate
+import java.time.Month
 
 /*
  Filename: Main.kt
@@ -12,53 +12,43 @@ import java.util.*
 
 
 fun main(args: Array<String>) {
-    // Get todays date
-    val d = SimpleDateFormat("d")
-    val M = SimpleDateFormat("M")
-    val yyyy = SimpleDateFormat("yyyy")
-    val year = yyyy.format(Date())
-    val month = M.format(Date())
-    val day_single = d.format(Date())
+    val today = LocalDate.now()
 
+    // A set of all our lukes 😋
+    val luker = setOf<Luke>(Day01())
 
     // Menu
-    var endProgram = -1
-    var menu = day_single
-    while (endProgram <= 0) {
-        println("--- \uD83C\uDF85 PST Xmas Calendar 2021 ($day_single. $month $year) \uD83C\uDF85 ---")
-        if(menu.equals("NULL") || !(month.equals("12"))) {
+    var endProgram = false
+    var menu: String? =
+        if (today.month == Month.DECEMBER && today.dayOfMonth < 25) today.dayOfMonth.toString() else null
+
+    while (!endProgram) {
+        println("--- \uD83C\uDF85 PST Xmas Calendar 2021 (${today}) \uD83C\uDF85 ---")
+
+        if (menu == null) {
             println("Select your luke between 1-24. Write anything else to end the program.")
             print("Selection: ")
             menu = readLine()!!
         }
 
-        // Go through menu possibilities
-        if (menu.equals("1")) {
-            println("\n--- Luke 1 ---")
+        // Go through valid menu possibilities
+        luker.stream()
+            .filter { luke -> luke.day().toString() == menu }
+            .findFirst()
+            .ifPresentOrElse({ valgtLuke ->
+                run {
+                    println("\n--- Luke ${valgtLuke.day()} ---")
+                    valgtLuke.run()
 
-            val day01 = Day01() // Creating an instance from our class
-            day01.run() // using the class methods by the instance we created.
-
-            // Continue
-            println("Press [Enter] to continue")
-            readLine()
-            menu = "NULL"
-        } else if (menu.equals("2")) {
-            println("\n--- Luke 2 ---")
-
-            // Continue
-            println("Press [Enter] to continue")
-            readLine()
-            menu = "NULL"
-        } else if (menu.equals("3")) {
-            println("\n--- Luke 3 ---")
-
-            // Continue
-            println("Press [Enter] to continue")
-            readLine()
-            menu = "NULL"
-        } else {
-            endProgram = 1
-        }
+                    // Continue
+                    println("Press [Enter] to continue")
+                    readLine()
+                    menu = null
+                }
+            }, {
+                // Found no matching luke
+                println("No such luke 😒")
+                endProgram = true
+            })
     }
 }
