@@ -16,17 +16,16 @@ fun main(args: Array<String>) {
     val d = SimpleDateFormat("d")
     val M = SimpleDateFormat("M")
     val yyyy = SimpleDateFormat("yyyy")
-    var year = yyyy.format(Date())
-    var month = M.format(Date())
-    var day_single = d.format(Date())
+    val year = yyyy.format(Date())
+    val month = M.format(Date())
+    val day_single = d.format(Date())
 
 
     // Menu
     var endProgram = -1
-    var continueProgram = -1
     var menu = day_single
     while (endProgram <= 0) {
-        println("--- \uD83C\uDF85 PST Xmas Calendar 2021 (" + day_single + ". " + month + " " + year + ") \uD83C\uDF85 ---")
+        println("--- \uD83C\uDF85 PST Xmas Calendar 2021 ($day_single. $month $year) \uD83C\uDF85 ---")
         if(menu.equals("NULL") || !(month.equals("12"))) {
             println("Select your luke between 1-24. Write anything else to end the program.")
             print("Selection: ")
@@ -42,21 +41,21 @@ fun main(args: Array<String>) {
 
             // Continue
             println("Press [Enter] to continue")
-            val continueProgram = readLine()
+            readLine()
             menu = "NULL"
         } else if (menu.equals("2")) {
             println("\n--- Luke 2 ---")
 
             // Continue
             println("Press [Enter] to continue")
-            val continueProgram = readLine()
+            readLine()
             menu = "NULL"
         } else if (menu.equals("3")) {
             println("\n--- Luke 3 ---")
 
             // Continue
             println("Press [Enter] to continue")
-            val continueProgram = readLine()
+            readLine()
             menu = "NULL"
         } else {
             endProgram = 1
