@@ -16,8 +16,6 @@ class Day01: Luke() {
     override fun title() = "Least Significant Bit Steganography"
 
     override fun run() {
-        val path = Paths.get("").toAbsolutePath().toString()
-        println("Working Directory = $path")
         val buff = ByteArray(1230)
         File("src\\main\\kotlin\\luke\\day01\\eksempel_bakgrunnsbilde.png").inputStream().buffered().use { input ->
             while(true) {
