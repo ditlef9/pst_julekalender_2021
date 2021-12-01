@@ -17,7 +17,7 @@ PST xmas calendar 2020 solution is located here: https://github.com/ditlef9/pst_
 Go to Main.kt and click Shift+F10 to run code.
 
 ---
-## Luke 1 - eksempel_bakgrunnsbilde.png - Least Significant Bit Steganography)
+## Luke 1 - eksempel_bakgrunnsbilde.png - Least Significant Bit Steganography
 
 **Assignment:**<br />
 I en melding får du bildet "eksempel_bakgrunnsbilde.png". 
