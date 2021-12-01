@@ -1,6 +1,8 @@
-import day01_least_significant_bit_steganography.Day01_Least_Significant_Bit_Steganography
+import luke.day01.Day01
+import luke.day02.Day02
 import java.time.LocalDate
 import java.time.Month
+import kotlin.system.exitProcess
 
 /*
  Filename: Main.kt
@@ -15,14 +17,13 @@ fun main(args: Array<String>) {
     val today = LocalDate.now()
 
     // A set of all our lukes 😋
-    val luker = setOf<Luke>(Day01_Least_Significant_Bit_Steganography())
+    val luker = setOf(Day01(), Day02())
 
-    // Menu
-    var endProgram = false
+    // Preset menu in December or else not
     var menu: String? =
         if (today.month == Month.DECEMBER && today.dayOfMonth < 25) today.dayOfMonth.toString() else null
 
-    while (!endProgram) {
+    while (true) {
         println("--- \uD83C\uDF85 PST Xmas Calendar 2021 (${today}) \uD83C\uDF85 ---")
 
         if (menu == null) {
@@ -35,10 +36,10 @@ fun main(args: Array<String>) {
         luker.stream()
             .filter { luke -> luke.day().toString() == menu }
             .findFirst()
-            .ifPresentOrElse({ valgtLuke ->
+            .ifPresentOrElse({ currentLuke ->
                 run {
-                    println("\n--- Luke ${valgtLuke.day()} ---")
-                    valgtLuke.run()
+                    println("\n--- Luke ${currentLuke.day()}: ${currentLuke.title()} ---")
+                    currentLuke.run()
 
                     // Continue
                     println("Press [Enter] to continue")
@@ -48,7 +49,7 @@ fun main(args: Array<String>) {
             }, {
                 // Found no matching luke
                 println("No such luke 😒")
-                endProgram = true
+                exitProcess(0)
             })
     }
 }

@@ -1,6 +1,5 @@
-package day01_least_significant_bit_steganography
-
-import Luke
+package luke.day01
+import luke.Luke
 import java.io.File
 
 /*
@@ -11,12 +10,13 @@ import java.io.File
  License: http://opensource.org/licenses/gpl-license.php GNU Public License
  */
 
-class Day01_Least_Significant_Bit_Steganography: Luke() {
+class Day01: Luke() {
     override fun day() = 1
+    override fun title() = "Least Significant Bit Steganography"
 
     override fun run() {
         val buff = ByteArray(1230)
-        File("src\\main\\kotlin\\day01_least_significant_bit_steganography\\eksempel_bakgrunnsbilde.png").inputStream().buffered().use { input ->
+        File("src\\main\\kotlin\\luke\\day1\\eksempel_bakgrunnsbilde.png").inputStream().buffered().use { input ->
             while(true) {
                 val sz = input.read(buff)
                 if (sz <= 0) break
