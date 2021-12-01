@@ -1,4 +1,4 @@
-import day01.Day01
+import day01_least_significant_bit_steganography.Day01_Least_Significant_Bit_Steganography
 import java.time.LocalDate
 import java.time.Month
 
@@ -15,7 +15,7 @@ fun main(args: Array<String>) {
     val today = LocalDate.now()
 
     // A set of all our lukes 😋
-    val luker = setOf<Luke>(Day01())
+    val luker = setOf<Luke>(Day01_Least_Significant_Bit_Steganography())
 
     // Menu
     var endProgram = false
