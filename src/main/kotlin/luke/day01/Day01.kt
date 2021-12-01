@@ -1,6 +1,7 @@
 package luke.day01
 import luke.Luke
 import java.io.File
+import java.nio.file.Paths
 
 /*
  Filename: Day01.kt
@@ -15,8 +16,10 @@ class Day01: Luke() {
     override fun title() = "Least Significant Bit Steganography"
 
     override fun run() {
+        val path = Paths.get("").toAbsolutePath().toString()
+        println("Working Directory = $path")
         val buff = ByteArray(1230)
-        File("src\\main\\kotlin\\luke\\day1\\eksempel_bakgrunnsbilde.png").inputStream().buffered().use { input ->
+        File("src\\main\\kotlin\\luke\\day01\\eksempel_bakgrunnsbilde.png").inputStream().buffered().use { input ->
             while(true) {
                 val sz = input.read(buff)
                 if (sz <= 0) break

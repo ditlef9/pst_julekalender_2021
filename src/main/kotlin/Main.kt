@@ -1,7 +1,9 @@
+import luke.Luke
 import luke.day01.Day01
 import luke.day02.Day02
 import java.time.LocalDate
 import java.time.Month
+import java.util.Comparator
 import kotlin.system.exitProcess
 
 /*
@@ -27,6 +29,7 @@ fun main(args: Array<String>) {
         println("--- \uD83C\uDF85 PST Xmas Calendar 2021 (${today}) \uD83C\uDF85 ---")
 
         if (menu == null) {
+            luker.stream().forEach { luke -> run { println("Luke ${luke.day()}: ${luke.title()}") } }
             println("Select your luke between 1-24. Write anything else to end the program.")
             print("Selection: ")
             menu = readLine()!!
