@@ -29,7 +29,15 @@ class Day01: Luke() {
     } // run
 
     private fun consumeArray(buff: ByteArray, i: Int, sz: Int) {
-        println("$buff $i $sz")
+        var lowestBit: Byte = 0
+        for (index in sz - 1 downTo 0) {
+            val currentLowestBit = buff[index].takeLowestOneBit()
+            if (currentLowestBit != 0.toByte()) {
+                lowestBit = currentLowestBit
+                print("$lowestBit")
+                break
+            }
+        }
     } // consumeArray
 
 }
