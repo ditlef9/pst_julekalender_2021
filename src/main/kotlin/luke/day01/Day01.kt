@@ -28,63 +28,6 @@ class Day01 : Luke() {
             }
         }
 
-        val pixel = File("src\\main\\kotlin\\luke\\day01\\eksempel_bakgrunnsbilde.png").inputStream().readAllBytes()
-        val string = String(pixel, Charsets.US_ASCII)
-        println(string)
-        readLine()
-
-        var binaryMessage = ""
-        var i = 0
-        val n = pixel.size
-        try {
-            while (i < n) {
-                var offset = 0
-                while (offset < 2) {
-                    var value = 0;
-                    if (i + offset >= n) {
-                        println("wood")
-                        if (pixel[n - 1] % 2 != 0) {
-                            value = 0;
-                        }
-                    } else {
-                        if (pixel[i + offset] % 2 != 0) {
-                            value = 1;
-                        }
-                    }
-
-                    binaryMessage += value;
-                    offset++
-                }
-                i += 4
-            }
-        } catch (e: Exception) {
-            e.stackTrace
-            println(e.message)
-            println("-----i: $i. BinaryMessage.length: ${binaryMessage.length}")
-        }
-
-        var output: String? = ""
-        var ii = 0
-        while (ii < binaryMessage.length) {
-            var c = 0
-            for (j in 0..7) {
-                try {
-                    c = c shl 1
-                    c = c or parseInt(binaryMessage[ii + j].toString())
-                } catch (e: Exception) {
-                    e.stackTrace
-                    println(e.message)
-                    if (output != null) {
-                        println("" + j + " ii: $ii. ${ii + j} BinaryMessage.length: ${output.length}")
-                    }
-                }
-            }
-            output += "" + c.toChar().toString()
-            ii += 8
-        }
-        println("$output")
-        println()
-        println(binaryMessage)
 
 
     } // run

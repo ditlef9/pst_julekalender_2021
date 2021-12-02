@@ -5,9 +5,9 @@ import luke.Luke
 class Day02: Luke() {
     override fun day() = 2
 
-    override fun title() ="Not yet implemented"
+    override fun title() ="Polyline Coordinate Message"
 
     override fun run() {
-        println("Not yet implemented")
+        println("PST{mange snille barn i verden}")
     }
 }
