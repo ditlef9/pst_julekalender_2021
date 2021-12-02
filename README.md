@@ -30,3 +30,17 @@ Bruk stenografi kalkulatoren her: https://stylesuxx.github.io/steganography/
 PST{HelloDASS}
 
 ---
+## Luke 2 - huskelapp_til_2021.txt - Polyline Coordinate Message
+
+**Assignment:**<br />
+I en melding får du filen "huskelapp_til_2021.txt". 
+Teksten minner om en liste av en liste med koordinater. 
+Hva skjuler seg bak koordinatene når de plottes inn i et kart? 🤔
+
+**Solution:**<br />
+Koordinatene danner en sammenhengende strek, og når man zoomer inn ser man svaret stavet ut.
+
+**Answer:**<br />
+PST{mange snille barn i verden}
+
+---
