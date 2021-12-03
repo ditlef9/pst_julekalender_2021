@@ -43,4 +43,22 @@ Koordinatene danner en sammenhengende strek, og når man zoomer inn ser man svar
 **Answer:**<br />
 PST{mange snille barn i verden}
 
+
 ---
+## Luke 2 - julekort_framsiden.jpg - Pigpen cipher decoder
+
+**Assignment:**<br />
+God fredag. Det Nordpolare Postkontor har oppdaget et julekort som er på vei til Antarktis. 
+Etterretning viser at pingvinene i Antarktis ikke alltid har ren snø i skuffa. 
+Det er derfor ønskelig at en alvebetjent gjennomfører en rutinemessig kontroll, 
+og undersøker julekortets bakside og framside. Rapporter tilbake et eventuelt funn innpakket i pst{}.
+
+**Solution:**<br />
+Roter forsiden slik at det er opp ned.<br />
+Løs bildet med Pigpen cipher decoder: https://planetcalc.com/7842/
+
+**Answer:**<br />
+PST{JULENISSENERTEIT}
+
+---
+
