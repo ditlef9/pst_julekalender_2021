@@ -55,7 +55,7 @@ og undersøker julekortets bakside og framside. Rapporter tilbake et eventuelt f
 
 **Solution:**<br />
 Roter forsiden slik at det er opp ned.<br />
-Løs bildet med Pigpen cipher decoder: https://planetcalc.com/7842/
+Løs bildet med Day03.kt eller manuelt med Pigpen cipher decoder: https://planetcalc.com/7842/
 
 **Answer:**<br />
 PST{JULENISSENERTEIT}
