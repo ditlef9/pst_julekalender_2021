@@ -38,11 +38,11 @@ class Day02: Luke() {
         }
 
         // Add header
-        csvLines += "latitude,longitude,title"
+        val csvLinesWithHeader = listOf("latitude,longitude,title") + csvLines
 
         // Write CSV file
         val resultFilePath: Path = Paths.get("src\\main\\kotlin\\luke\\day02\\huskelapp_til_2021.csv")
-        Files.write(resultFilePath, csvLines)
+        Files.write(resultFilePath, csvLinesWithHeader)
 
         // The file can be uploaded here: mymaps.google.com
 
