@@ -14,7 +14,10 @@ import kotlin.system.exitProcess
 
 
 fun main(args: Array<String>) {
-    val today = LocalDate.now()
+    var today = LocalDate.now()
+    // today = today.plusDays(-1); // For solving yesterdays calendar
+
+
 
     // A set of all our lukes 😋
     val luker = setOf(Day01(), Day02())
