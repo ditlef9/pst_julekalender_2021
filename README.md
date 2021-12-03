@@ -45,7 +45,7 @@ PST{mange snille barn i verden}
 
 
 ---
-## Luke 2 - julekort_framsiden.jpg - Pigpen cipher decoder
+## Luke 3 - julekort_framsiden.jpg - Pigpen cipher decoder
 
 **Assignment:**<br />
 God fredag. Det Nordpolare Postkontor har oppdaget et julekort som er på vei til Antarktis. 
