@@ -61,4 +61,17 @@ Løs bildet med Day03.kt eller manuelt med Pigpen cipher decoder: https://planet
 PST{JULENISSENERTEIT}
 
 ---
+## Luke 4 - verksted_npst.txt - Krøll på verkstedet
+
+**Assignment:**<br />
+HMS-ansvarlig var innom verkstedet i går og var helt forskrekket over rotet vi har etterlatt oss der. Jeg er litt
+opptatt med møter i dag, kan du ta deg tid til å rydde litt? Oversikt over hva vi har på verkstedet ligger vedlagt.
+
+**Solution:**<br />
+
+
+**Answer:**<br />
+PST{DetBlirFortRot}
+
+---
 
