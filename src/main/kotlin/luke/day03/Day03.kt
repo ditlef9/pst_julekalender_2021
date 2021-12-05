@@ -2,6 +2,10 @@ package luke.day03
 
 import luke.Luke
 
+fun main() {
+    Day03().run()
+}
+
 class Day03: Luke() {
     override fun day() = 3
 

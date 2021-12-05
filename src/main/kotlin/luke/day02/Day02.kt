@@ -1,12 +1,15 @@
 package luke.day02
 
 import luke.Luke
+import luke.day05.Day05
 import java.io.File
 import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.Paths
 
-
+fun main() {
+    Day02().run()
+}
 
 class Day02: Luke() {
     override fun day() = 2

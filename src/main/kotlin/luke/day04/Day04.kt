@@ -1,15 +1,13 @@
 package luke.day04
 
 import luke.Luke
-import org.intellij.lang.annotations.Language
 import java.io.File
-import java.util.regex.Pattern
 import java.util.stream.Collectors
 import java.util.stream.Collectors.toList
 data class  Ting(val index: Int, val hylleplass: String, val utstyr: String, val id:Int)
     // Indeks;Hylleplass;Utstyr;Id
 
-fun main(args: Array<String>) {
+fun main() {
     Day04().run()
 }
 
@@ -31,28 +29,36 @@ class Day04: Luke() {
 
     override fun run() {
 
-        println("ordered by Utstyr:")
+        println("Ordered by Utstyr")
+        print("Hylleplass-values combined: ")
         val sortedByUtstyr = sortedByIndex.stream()
             .sorted { o1, o2 -> o1.utstyr.compareTo(o2.utstyr) }
+            .peek{ print(it.hylleplass) }
             //.peek { println("" + it.id + " __ "+ it.index) } // debug
             .toList()
 
         val hexUtstyr = sortedByUtstyr.stream()
             .map { it.hylleplass }
-            .map{hexToString(it)}
+            .map{ hexToString(it) }
             .collect(Collectors.joining(""))
-        println(hexUtstyr)
-        val strippedAllNonAlphabetical = hexUtstyr.replace("[\\W]".toRegex(), "")
-        println(strippedAllNonAlphabetical)
+
+        println()
+        println("Converted all hylleplass values from hex to string:")
+        println("\t"+hexUtstyr)
+
+        val strippedAllNonAlphabeticalExceptBirdybrackets = hexUtstyr.replace("[^\\w{}]".toRegex(), "")
+        println("Remove any non-word character except our dear birdie-brackets:")
+        println("\t"+strippedAllNonAlphabeticalExceptBirdybrackets)
         println()
 
-        // Life is too short.. clean up manually:
-        val p = strippedAllNonAlphabetical.split((108).toChar());
-        println("${p[0]}{${p[1]}l${p[2]}}")
+        println("What about that extra 'l'? Life is too short.. clean up manually:")
+        val p = strippedAllNonAlphabeticalExceptBirdybrackets.split((108).toChar());
+        println("\t${p[0]}${p[1]}l${p[2]}")
     }
 }
 
-fun hexToString(hex: String): String {
+// Snagged from the web 🙄
+private fun hexToString(hex: String): String {
     val sb = StringBuilder()
     val temp = StringBuilder()
 

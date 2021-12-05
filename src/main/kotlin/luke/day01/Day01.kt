@@ -12,6 +12,10 @@ import java.lang.Integer.parseInt
  License: http://opensource.org/licenses/gpl-license.php GNU Public License
  */
 
+fun main() {
+    Day01().run()
+}
+
 class Day01 : Luke() {
     override fun day() = 1
     override fun title() = "Least Significant Bit Steganography"
