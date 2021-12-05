@@ -74,4 +74,61 @@ opptatt med møter i dag, kan du ta deg tid til å rydde litt? Oversikt over hva
 PST{DetBlirFortRot}
 
 ---
+## Luke 5 - vareliste - SQL injection
+
+**Assignment:**<br />
+HMS-ansvarlig var innom verkstedet i går og var helt forskrekket over rotet vi har etterlatt oss der. Jeg er litt
+opptatt med møter i dag, kan du ta deg tid til å rydde litt? Oversikt over hva vi har på verkstedet ligger vedlagt.
+
+**Solution:**<br />
+
+1. Vi ser i kildekoden at ved å skrive `hjelp` eller `Hjelp` i input for søket får vi opp et hjelpevindu. Her får vi tips om SQL-injection og en lenke til video om hvordan dette kan gjøres. Vi får også tips om å ikke bruke tilfeldige tall "som i videoen", men `null`.
+2. Ved å gjøre noen vanlige søk ser vi at man får feilmeldinger dersom søkestrengen er under to tegn. I requesten vi får fra server får vi en rå feilmelding fra serveren. Den inneholder hint om type database -> PostgreSQL
+3. Bare å [google](https://www.startpage.com/sp/search?query=sql+injection+postgres) opp "Postgres sql injection" 😁
+4. La oss starte med og hente opp alle tabellene i basen ved å bruke søkeord `Julekuler'  UNION (SELECT '59495ce2-da82-4a01-b79a-f48b2a7c214b', table_name,null, null, null, null FROM information_schema.tables);--`
+5. Vi finner usannsynlig mange tabeller inkludert tabellen `ting`. For å liste kolonnene i tabellen søker vi med `Julekuler'  UNION (SELECT '59495ce2-da82-4a01-b79a-f48b2a7c214b',  column_name, null, null , null, null FROM information_schema.columns WHERE table_name='ting');--`
+6. Tabellen inneholder: antall, enhet, flagg, id, kommentar, navn
+7. Flagg er interessant..
+
+Hmm.. har ikke jeg sett det før? 😒
+
+Hvis vi søker på `%%%` vises alle tingene. 
+
+![img.png](img.png)
+
+Merk flagget.. hva har vi fått fra server?
+
+```json
+{
+  "id": "4670e74d-59c0-4ca0-8a18-2cd58f5d1076",
+  "navn": "Nellikspiker",
+  "antall": 2400,
+  "enhet": "stk",
+  "kommentar": "",
+  "flagg": null
+},
+{
+  "id": "13b97062-dd26-41dc-bda0-58e4be6d1deb",
+  "navn": "Ukjent vare",
+  "antall": 1,
+  "enhet": "stk",
+  "kommentar": "🚩",
+  "flagg": "PST{5Q1_1nj€Ⓒt10n}"
+},
+{
+  "id": "d6177e13-a05b-4ea1-88ad-d1a617dd91f4",
+  "navn": "Nisseluer",
+  "antall": 7658,
+  "enhet": "stk",
+  "kommentar": "",
+  "flagg": null
+},
+```
+
+Pent og pyntelig ser vi at vi har kastet bort tiden på SQL-injections 😜
+
+**Answer:**<br />
+PST{5Q1_1nj€Ⓒt10n}
+
+---
 
