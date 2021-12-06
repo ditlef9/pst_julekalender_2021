@@ -6,6 +6,14 @@ fun main() {
     Day03().run()
 }
 
+/*
+ Filename: Main.kt
+ Author: Ditlef
+ Date: 03.12.2021 22:31
+ Version: 1
+ License: http://opensource.org/licenses/gpl-license.php GNU Public License
+ */
+
 class Day03: Luke() {
     override fun day() = 3
 
