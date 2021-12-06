@@ -20,17 +20,32 @@ class Day05 : Luke() {
     override fun run() {
         println("PST{5Q1_1nj€Ⓒt10n}")
 
+        // Form values to send
+        val url = "https://varelager.p26e.dev/api/search"
+        val values = """{"key":"v1_pgmsqxmddz","search":"%%%"}"""
 
-        val values = mapOf("key" to "v1_pgmsqxmddz", "search" to "%%%")
-
+        // Send request
         val client = HttpClient.newBuilder().build();
         val request = HttpRequest.newBuilder()
-            .uri(URI.create("https://varelager.p26e.dev/api/search"))
-            .POST(formData(values))
+            .uri(URI.create(url))
+            .POST(HttpRequest.BodyPublishers.ofString(values))
             .header("Content-Type", "application/x-www-form-urlencoded")
             .build()
         val response = client.send(request, HttpResponse.BodyHandlers.ofString());
-        println(response.body())
+        //println(response.body()) <-- debugging print response
+
+        // Loop trough response
+        var lines = response.body().lines()
+
+        // printing lines
+        var x: Int = 1
+        lines.forEach {
+            if(it.contains("PST", ignoreCase = true) || it.contains("EGG", ignoreCase = true)) {
+                println("Line $x: $it")
+            }
+            x = x+1
+        }
+
     } // run
 
 
