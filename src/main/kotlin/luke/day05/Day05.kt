@@ -1,14 +1,33 @@
 package luke.day05
 
+/*
+ Filename: Main.kt
+ Author: Mr Ditlefsen and Mr Neim
+ Date: 05.12.2021
+ Version: 1
+ License: http://opensource.org/licenses/gpl-license.php GNU Public License
+ */
+
+
 import luke.Luke
 import org.codehaus.jackson.map.ObjectMapper
-
 
 import java.net.URI
 import java.net.URLEncoder
 import java.net.http.HttpClient
 import java.net.http.HttpRequest
 import java.net.http.HttpResponse
+
+/*
+Requirements in build.gradle.kts:
+
+dependencies {
+    implementation("com.fasterxml:jackson-xml-databind:0.6.2")
+    testImplementation(kotlin("test"))
+}
+ */
+
+
 
 fun main() {
     Day05().run()
@@ -41,7 +60,7 @@ class Day05 : Luke() {
         val response = client.send(request, HttpResponse.BodyHandlers.ofString());
         // println(response.body())
 
-
+        // Search for PST and EGG
         var lines = response.body().lines()
         var x: Int = 0;
         lines.forEach {
