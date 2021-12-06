@@ -33,7 +33,10 @@ fun main(args: Array<String>) {
         println("\n--- \uD83C\uDF85 PST Xmas Calendar 2021 (${today}) \uD83C\uDF85 ---")
 
         if (menu == null) {
-            luker.stream().forEach { luke -> run { println("\tLuke ${luke.day()}: ${luke.title()}") } }
+            luker.stream().forEach { luke -> run {
+                    println("\tLuke ${luke.day()}: ${luke.title()}")
+                }
+            }
             println("\nSelect your luke between 1-24. Write anything else to end the program.")
             print("Selection: ")
             menu = readLine()!!
