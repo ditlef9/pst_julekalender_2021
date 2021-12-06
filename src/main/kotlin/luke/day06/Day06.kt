@@ -8,7 +8,7 @@ fun main() {
 
 class Day06 : Luke() {
     override fun day() = 6
-    override fun title() = "Not yet implemented"
+    override fun title() = "Monday December 6th 2021 is a day off"
 
     override fun run() {
         println(title())
