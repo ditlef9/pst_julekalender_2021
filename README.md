@@ -94,9 +94,9 @@ Hmm.. har ikke jeg sett det før? 😒
 
 Hvis vi søker på `%%%` vises alle tingene. 
 
-![img.png](img.png)
+![img.png](src/main/kotlin/luke/day05/img.png)
 
-Merk flagget.. hva har vi fått fra server?
+Merk flagget.. hva har vi fått fra server? (I Firefox -> Meny -> Flere Verktøy -> Web develoer Tools -> Network. Velg POST og klikk Response.)
 
 ```json
 {
