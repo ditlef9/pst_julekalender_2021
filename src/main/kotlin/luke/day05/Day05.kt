@@ -1,6 +1,7 @@
 package luke.day05
 
 import luke.Luke
+import org.codehaus.jackson.map.ObjectMapper
 
 
 import java.net.URI
@@ -17,20 +18,40 @@ class Day05 : Luke() {
     override fun day() = 5
     override fun title() = "SQL injections"
 
+    private val mapper = ObjectMapper()
+
     override fun run() {
         println("PST{5Q1_1nj€Ⓒt10n}")
 
-
+        // Form data
+        val url = "https://varelager.p26e.dev/api/search"
         val values = mapOf("key" to "v1_pgmsqxmddz", "search" to "%%%")
 
+        // Send form
+        val valuesAsJson = mapper.writeValueAsString(values)
+        println("valuesAsJson:" +valuesAsJson)
         val client = HttpClient.newBuilder().build();
         val request = HttpRequest.newBuilder()
-            .uri(URI.create("https://varelager.p26e.dev/api/search"))
+            .uri(URI.create(url))
             .POST(formData(values))
+            .POST(HttpRequest.BodyPublishers.ofString(valuesAsJson))
             .header("Content-Type", "application/x-www-form-urlencoded")
             .build()
+
         val response = client.send(request, HttpResponse.BodyHandlers.ofString());
-        println(response.body())
+        // println(response.body())
+
+
+        var lines = response.body().lines()
+        var x: Int = 0;
+        lines.forEach {
+            if(it.contains("PST", ignoreCase = true) || it.contains("EGG", ignoreCase = true)) {
+                println("Line $x: $it")
+            }
+
+            x++
+        }
+
     } // run
 
 
