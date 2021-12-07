@@ -1,7 +1,6 @@
 package luke.day07
 
 import luke.Luke
-import luke.day06.Day06
 
 /*
  Filename: Main.kt
@@ -13,11 +12,11 @@ import luke.day06.Day06
 
 
 fun main() {
-    Day06().run()
+    Day07().run()
 }
 class Day07 : Luke() {
-    override fun day() = 6
-    override fun title() = "Monday December 6th 2021 is a day off"
+    override fun day() = 7
+    override fun title() = "Encrypted message with receiver"
 
     override fun run() {
         println(title())
@@ -29,15 +28,14 @@ class Day07 : Luke() {
         // Info Message
         var messageLength = message.length
         println("Message = $message")
-        println("Message length = $messageLength")
+        println("Message length = $messageLength\n")
 
         // Info parts
         var messageSplitOnSpace = message.split(" ")
         for (part in messageSplitOnSpace) {
             var partLength = part.length
-            println("\n")
             println("Part = $part")
-            println("Part length = $partLength")
+            println("Part length = $partLength\n")
         }
 
 
