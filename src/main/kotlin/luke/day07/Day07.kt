@@ -1,6 +1,9 @@
 package luke.day07
 
 import luke.Luke
+import java.util.*
+import javax.crypto.*
+import javax.crypto.spec.SecretKeySpec
 
 
 /*
@@ -25,42 +28,20 @@ class Day07 : Luke() {
 
         // Input data
         var message: String = "Y2MPyYU4kblEXrEfExry4AIRAjqdke+JyQQN50Uj5GuCu5rE66lEzQXB5bE VOlNGRoU06Ny4vh/gzSPFV0mHUrxaaAVt1BwN1WN1HFT7baIejtR5KyG6 JK8yC70CpuPZV610coCiWzdFICcgEtAdQaesScLrg495kxofzG3EGvA="
-        var receiver: String = "Chili Willy"
+        var key: String = "julenissenerteit"
 
         // Info Message
         var messageLength = message.length
         println("Message = $message")
         println("Message length = $messageLength\n")
 
-        // Info parts
-        var items = message.split(" ")
-        for (part in items) {
-            var partLength = part.length
-            println("Part = $part")
-            println("Part length = $partLength\n")
-        }
-
-        // Print all combinations
-        val result = items
-            .flatMap { i1 ->
-                items.flatMap { i2 ->
-                    items.mapNotNull { i3 ->
-                        val combination = listOf(i1, i2, i3).distinct()
-                        if (combination.count() == 3) combination else null
-                    }
-                }
-            }
-            .mapIndexed { index, it -> "" + (index + 1) + ". " + it[0] + "\n" + it[1] + "\n" + it[2] }
-
-        for (item in result) {
-            println(item + "\n")
-        }
-
-
+        // Decrypt
+        decryptAES(message, key)
 
     } // run
 
-
-
+    private fun decryptAES(message: String, key: String) {
+        // Todo
+    }
 
 }

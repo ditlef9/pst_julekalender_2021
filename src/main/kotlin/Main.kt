@@ -20,7 +20,7 @@ import kotlin.system.exitProcess
 
 fun main(args: Array<String>) {
     var today = LocalDate.now()
-    // today = today.plusDays(-1); // For solving yesterdays calendar
+    today = today.plusDays(-1); // For solving yesterdays calendar
 
 
     // A set of all our lukes 😋
