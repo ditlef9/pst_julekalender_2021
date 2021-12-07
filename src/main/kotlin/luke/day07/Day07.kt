@@ -2,6 +2,7 @@ package luke.day07
 
 import luke.Luke
 
+
 /*
  Filename: Main.kt
  Author: Mr Ditlefsen and Mr Neim
@@ -22,6 +23,7 @@ class Day07 : Luke() {
         println(title())
 
 
+        // Input data
         var message: String = "Y2MPyYU4kblEXrEfExry4AIRAjqdke+JyQQN50Uj5GuCu5rE66lEzQXB5bE VOlNGRoU06Ny4vh/gzSPFV0mHUrxaaAVt1BwN1WN1HFT7baIejtR5KyG6 JK8yC70CpuPZV610coCiWzdFICcgEtAdQaesScLrg495kxofzG3EGvA="
         var receiver: String = "Chili Willy"
 
@@ -31,14 +33,34 @@ class Day07 : Luke() {
         println("Message length = $messageLength\n")
 
         // Info parts
-        var messageSplitOnSpace = message.split(" ")
-        for (part in messageSplitOnSpace) {
+        var items = message.split(" ")
+        for (part in items) {
             var partLength = part.length
             println("Part = $part")
             println("Part length = $partLength\n")
         }
 
+        // Print all combinations
+        val result = items
+            .flatMap { i1 ->
+                items.flatMap { i2 ->
+                    items.mapNotNull { i3 ->
+                        val combination = listOf(i1, i2, i3).distinct()
+                        if (combination.count() == 3) combination else null
+                    }
+                }
+            }
+            .mapIndexed { index, it -> "" + (index + 1) + ". " + it[0] + "\n" + it[1] + "\n" + it[2] }
+
+        for (item in result) {
+            println(item + "\n")
+        }
+
+
 
     } // run
+
+
+
 
 }
