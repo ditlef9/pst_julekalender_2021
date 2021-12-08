@@ -1,13 +1,10 @@
 package luke.day07
 
 import luke.Luke
+import java.nio.charset.StandardCharsets;
 import java.util.*
-import javax.crypto.Cipher
-import javax.crypto.SecretKeyFactory
-import javax.crypto.spec.IvParameterSpec
-import javax.crypto.spec.PBEKeySpec
-import javax.crypto.spec.SecretKeySpec
-
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
 /*
  Filename: Main.kt
  Author: Mr Ditlefsen and Mr Neim
@@ -25,67 +22,29 @@ class Day07 : Luke() {
     override fun title() = "Encrypted message with receiver"
 
 
+    // Input
+    private val CIPHER_TEXT =
+        "Y2MPyYU4kblEXrEfExry4AIRAjqdke+JyQQN50Uj5GuCu5rE66lEzQXB5bEVOlNGRoU06Ny4vh/gzSPFV0mHUrxaaAVt1BwN1WN1HFT7baIejtR5KyG6JK8yC70CpuPZV610coCiWzdFICcgEtAdQaesScLrg495kxofzG3EGvA="
+    private val CIPHER_WITH_MODE_AND_PADDING = "AES/ECB/NoPadding"
+    private val secretKey = "julenissenerteit"
+
     override fun run() {
         println(title())
 
-        // Input data
-        val message: String = "Y2MPyYU4kblEXrEfExry4AIRAjqdke+JyQQN50Uj5GuCu5rE66lEzQXB5bE VOlNGRoU06Ny4vh/gzSPFV0mHUrxaaAVt1BwN1WN1HFT7baIejtR5KyG6 JK8yC70CpuPZV610coCiWzdFICcgEtAdQaesScLrg495kxofzG3EGvA="
-        val secretKey = "julenissenerteit"
 
         // Info Message
-        var messageLength = message.length
-        println("Message = $message")
+        var messageLength = CIPHER_TEXT.length
+        println("Message = $CIPHER_TEXT")
         println("Message length = $messageLength\n")
 
         // Decrypt
-        var decrypted: String = decryptAES(message, secretKey)!!
-        println("Decrypted message = $decrypted")
+        val byteBuffer = Base64.getDecoder().decode(CIPHER_TEXT)
+        val cipher = Cipher.getInstance(CIPHER_WITH_MODE_AND_PADDING)
+        val keyMaterial: ByteArray =
+            "JULENISSENERTEIT".lowercase(Locale.getDefault()).getBytes(StandardCharsets.US_ASCII)
+        cipher.init(Cipher.DECRYPT_MODE, SecretKeySpec(keyMaterial, "AES"))
+        val plainText = cipher.doFinal(byteBuffer)
+        println(String(plainText))
 
     } // run
-
-    fun encryptAES(strToEncrypt: String, secretKey: String) :  String?
-    {
-        /*
-        try
-        {
-            val ivParameterSpec = IvParameterSpec(Base64.decode("iv", Base64.DEFAULT))
-
-            val factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1")
-            val spec =  PBEKeySpec(secretKey.toCharArray(), Base64.decode(salt, Base64.DEFAULT), 10000, 256)
-            val tmp = factory.generateSecret(spec)
-            val secretKey =  SecretKeySpec(tmp.encoded, "AES")
-
-            val cipher = Cipher.getInstance("AES/CBC/PKCS7Padding")
-            cipher.init(Cipher.ENCRYPT_MODE, secretKey, ivParameterSpec)
-            return Base64.encodeToString(cipher.doFinal(strToEncrypt.toByteArray(Charsets.UTF_8)), Base64.DEFAULT)
-        }
-        catch (e: Exception)
-        {
-            println("Error while encrypting: $e")
-        }
-        */
-        return null
-    }
-
-    fun decryptAES(strToDecrypt : String, secretKey: String) : String? {
-
-        try{
-
-            val ivParameterSpec =  IvParameterSpec(Base64.getDecoder().decode("iv"))
-
-            val factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1")
-            val spec =  PBEKeySpec(secretKey.toCharArray(), Base64.getDecoder().decode("salt"), 10000, 256)
-            val tmp = factory.generateSecret(spec);
-            val secretKey =  SecretKeySpec(tmp.encoded, "AES")
-
-            val cipher = Cipher.getInstance("AES/ECB/PKCS5PADDING");
-            cipher.init(Cipher.DECRYPT_MODE, secretKey);
-            return  String(cipher.doFinal(Base64.getDecoder().decode(strToDecrypt)))
-        }
-        catch (e : Exception) {
-            println("Error while decrypting: $e");
-        }
-
-        return null
-    }
 }
