@@ -26,7 +26,8 @@ class Day07 : Luke() {
     private val CIPHER_TEXT =
         "Y2MPyYU4kblEXrEfExry4AIRAjqdke+JyQQN50Uj5GuCu5rE66lEzQXB5bEVOlNGRoU06Ny4vh/gzSPFV0mHUrxaaAVt1BwN1WN1HFT7baIejtR5KyG6JK8yC70CpuPZV610coCiWzdFICcgEtAdQaesScLrg495kxofzG3EGvA="
     private val CIPHER_WITH_MODE_AND_PADDING = "AES/ECB/NoPadding"
-    private val secretKey = "julenissenerteit"
+    private val SECRET_KEY = "julenissenerteit"
+
 
     override fun run() {
         println(title())
@@ -41,7 +42,7 @@ class Day07 : Luke() {
         val byteBuffer = Base64.getDecoder().decode(CIPHER_TEXT)
         val cipher = Cipher.getInstance(CIPHER_WITH_MODE_AND_PADDING)
         val keyMaterial: ByteArray =
-            "JULENISSENERTEIT".lowercase(Locale.getDefault()).getBytes(StandardCharsets.US_ASCII)
+            SECRET_KEY.lowercase(Locale.getDefault()).toByteArray(StandardCharsets.US_ASCII)
         cipher.init(Cipher.DECRYPT_MODE, SecretKeySpec(keyMaterial, "AES"))
         val plainText = cipher.doFinal(byteBuffer)
         println(String(plainText))
