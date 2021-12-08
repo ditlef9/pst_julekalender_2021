@@ -7,7 +7,7 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 /*
  Filename: Main.kt
- Author: Mr Ditlefsen, Mr Neim, Mr Wollan (That wrote it in Java!)
+ Author: Mr Ditlefsen, Mr Wollan (That wrote it in Java!)
  Date: 07.12.2021
  Version: 1
  License: http://opensource.org/licenses/gpl-license.php GNU Public License
