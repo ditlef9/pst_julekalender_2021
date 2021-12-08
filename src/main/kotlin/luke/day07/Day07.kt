@@ -1,6 +1,12 @@
 package luke.day07
 
 import luke.Luke
+import java.util.*
+import javax.crypto.Cipher
+import javax.crypto.SecretKeyFactory
+import javax.crypto.spec.IvParameterSpec
+import javax.crypto.spec.PBEKeySpec
+import javax.crypto.spec.SecretKeySpec
 
 /*
  Filename: Main.kt
@@ -18,17 +24,13 @@ class Day07 : Luke() {
     override fun day() = 7
     override fun title() = "Encrypted message with receiver"
 
+
     override fun run() {
         println(title())
-
 
         // Input data
         val message: String = "Y2MPyYU4kblEXrEfExry4AIRAjqdke+JyQQN50Uj5GuCu5rE66lEzQXB5bE VOlNGRoU06Ny4vh/gzSPFV0mHUrxaaAVt1BwN1WN1HFT7baIejtR5KyG6 JK8yC70CpuPZV610coCiWzdFICcgEtAdQaesScLrg495kxofzG3EGvA="
         val secretKey = "julenissenerteit"
-
-        // val salt = "QWlGNHNhMTJTQWZ2bGhpV3U=" // base64 decode => AiF4sa12SAfvlhiWu
-        // val iv = "bVQzNFNhRkQ1Njc4UUFaWA==" // base64 decode => mT34SaFD5678QAZX
-
 
         // Info Message
         var messageLength = message.length
@@ -36,12 +38,12 @@ class Day07 : Luke() {
         println("Message length = $messageLength\n")
 
         // Decrypt
-        var decrypted: String = decrypt(message)!!
+        var decrypted: String = decryptAES(message, secretKey)!!
         println("Decrypted message = $decrypted")
 
     } // run
 
-    fun encrypt(strToEncrypt: String) :  String?
+    fun encryptAES(strToEncrypt: String, secretKey: String) :  String?
     {
         /*
         try
@@ -65,25 +67,25 @@ class Day07 : Luke() {
         return null
     }
 
-    fun decrypt(strToDecrypt : String) : String? {
-        /*
+    fun decryptAES(strToDecrypt : String, secretKey: String) : String? {
+
         try{
 
-            val ivParameterSpec =  IvParameterSpec(Base64.decode(iv, Base64.DEFAULT))
+            val ivParameterSpec =  IvParameterSpec(Base64.getDecoder().decode("iv"))
 
             val factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1")
-            val spec =  PBEKeySpec(secretKey.toCharArray(), Base64.decode(salt, Base64.DEFAULT), 10000, 256)
+            val spec =  PBEKeySpec(secretKey.toCharArray(), Base64.getDecoder().decode("salt"), 10000, 256)
             val tmp = factory.generateSecret(spec);
             val secretKey =  SecretKeySpec(tmp.encoded, "AES")
 
-            val cipher = Cipher.getInstance("AES/CBC/PKCS7Padding");
-            cipher.init(Cipher.DECRYPT_MODE, secretKey, ivParameterSpec);
-            return  String(cipher.doFinal(Base64.decode(strToDecrypt, Base64.DEFAULT)))
+            val cipher = Cipher.getInstance("AES/ECB/PKCS5PADDING");
+            cipher.init(Cipher.DECRYPT_MODE, secretKey);
+            return  String(cipher.doFinal(Base64.getDecoder().decode(strToDecrypt)))
         }
         catch (e : Exception) {
             println("Error while decrypting: $e");
         }
-        */
+
         return null
     }
 }
