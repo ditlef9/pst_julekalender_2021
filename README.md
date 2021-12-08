@@ -153,6 +153,10 @@ Brevet fra Chili Willie i luke 6 er løsningen:
 
 Ved å gjøre de om til små bokstaver og bruke en decrypter (https://www.devglan.com/online-tools/aes-encryption-decryption) får man løsningen:
 
+* Enter Secret Key: julenissenerteit
+
+Dekryptert melding:
+
 * NPSTs skal endre paa pakkefordelingsruta i aar. Det gir mulighet for aa sabotere. XOXO M. PS Ikke god jul. PS pst{nootnoot}
 
 
