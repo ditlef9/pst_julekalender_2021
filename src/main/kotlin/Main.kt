@@ -5,6 +5,7 @@ import luke.day04.Day04
 import luke.day05.Day05
 import luke.day06.Day06
 import luke.day07.Day07
+import luke.day08.Day08
 import java.time.LocalDate
 import java.time.Month
 import kotlin.system.exitProcess
@@ -20,11 +21,11 @@ import kotlin.system.exitProcess
 
 fun main(args: Array<String>) {
     var today = LocalDate.now()
-    today = today.plusDays(-1); // For solving yesterdays calendar
+    // today = today.plusDays(-1); // For solving yesterdays calendar
 
 
     // A set of all our lukes 😋
-    val luker = setOf(Day01(), Day02(), Day03(), Day04(), Day05(), Day06(), Day07())
+    val luker = setOf(Day01(), Day02(), Day03(), Day04(), Day05(), Day06(), Day07(), Day08())
 
     // Preset menu in December or else not
     var menu: String? =

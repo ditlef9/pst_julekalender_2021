@@ -132,3 +132,43 @@ PST{5Q1_1nj€Ⓒt10n}
 
 ---
 
+## Luke 6 - Day off
+
+---
+
+## Luke 7 - AES encrypted message
+
+**Assignment:**<br />
+Denne krypterte beskjeden skal dekrypteres:<br />
+* Y2MPyYU4kblEXrEfExry4AIRAjqdke+JyQQN50Uj5GuCu5rE66lEzQXB5bE VOlNGRoU06Ny4vh/gzSPFV0mHUrxaaAVt1BwN1WN1HFT7baIejtR5KyG6 JK8yC70CpuPZV610coCiWzdFICcgEtAdQaesScLrg495kxofzG3EGvA=
+
+**Solution:**<br />
+Dekrypteringsnøkkelen må være 16 tegn. <br />
+Man får hint om at dekrypteringsnøkkelen har vært utvekslet tidligere.
+Ved å se på alle store bokstavene i meldingen ser man at det er AES-kryptering:<br />
+* en <b><u>A</u></b>lvebetjent gjorde meg oppmerksom på at det kan ha foregått <b><u>E</u></b>n nøkkelutveksling tidligere i desember, kan<b><u>S</u></b>kje det kan hjelpe i oppklaringen?
+
+Brevet fra Chili Willie i luke 6 er løsningen:
+* PST{JULENISSENERTEIT}
+
+Ved å gjøre de om til små bokstaver og bruke en decrypter (https://www.devglan.com/online-tools/aes-encryption-decryption) får man løsningen:
+
+* NPSTs skal endre paa pakkefordelingsruta i aar. Det gir mulighet for aa sabotere. XOXO M. PS Ikke god jul. PS pst{nootnoot}
+
+
+**Answer:**<br />
+pst{nootnoot}
+
+---
+
+## Luke 8 - ?
+
+**Assignment:**<br />
+x
+
+**Solution:**<br />
+x
+
+**Answer:**<br />
+x
+---
