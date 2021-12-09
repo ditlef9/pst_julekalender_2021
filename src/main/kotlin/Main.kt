@@ -6,6 +6,8 @@ import luke.day05.Day05
 import luke.day06.Day06
 import luke.day07.Day07
 import luke.day08.Day08
+import luke.day09.Day09
+import luke.day10.Day10
 import java.time.LocalDate
 import java.time.Month
 import kotlin.system.exitProcess
@@ -25,7 +27,7 @@ fun main(args: Array<String>) {
 
 
     // A set of all our lukes 😋
-    val luker = setOf(Day01(), Day02(), Day03(), Day04(), Day05(), Day06(), Day07(), Day08())
+    val luker = setOf(Day01(), Day02(), Day03(), Day04(), Day05(), Day06(), Day07(), Day08(), Day09(), Day10())
 
     // Preset menu in December or else not
     var menu: String? =
