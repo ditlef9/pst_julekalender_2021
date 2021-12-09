@@ -178,10 +178,18 @@ Motivet på frimerket er av en slik karakter at det må undersøkes nærmere. Ka
 
 **Solution:**<br />
 Ved å laste opp frimerke til https://aperisolve.fr/745da5c08083c8fbbfa4b98e6be527ef
-vil man få kun rødfarge av frimerket.
+vil man få kun rød, blå og grønn versjon av frimerket.
 
-![img.png](src/main/kotlin/luke/day08/frimerke_rod_1.png)
+Rød:<br />
+![img.png](src/main/kotlin/luke/day08/frimerke_red_layer_0.png)
 
+Grønn:<br />
+![img.png](src/main/kotlin/luke/day08/frimerke_green_layer_0.png)
+
+Blå:<br />
+![img.png](src/main/kotlin/luke/day08/frimerke_blue_layer_0.png)
+
+Rødt lag forteller at Grønt og Blått skal kombineres.
 
 **Answer:**<br />
 x
