@@ -165,13 +165,23 @@ pst{nootnoot}
 
 ---
 
-## Luke 8 - ?
+## Luke 8 - frimerke.png - 
 
 **Assignment:**<br />
-x
+En av alvebetjentene fant et løst frimerke i postmottaket. Initielle undersøkelser viser at det ikke kan ha sittet på julekortet som kom den 3. desember, da fiberne som sitter igjen i limet ikke er av samme type som julekortet. Fiberne kan minne om setetrekket fra en reinsdyrslede klasse 8.
+
+Motivet på frimerket er av en slik karakter at det må undersøkes nærmere. Kan du ta en titt?
+
+
+![img.png](src/main/kotlin/luke/day08/frimerke.png)
+
 
 **Solution:**<br />
-x
+Ved å laste opp frimerke til https://aperisolve.fr/745da5c08083c8fbbfa4b98e6be527ef
+vil man få kun rødfarge av frimerket.
+
+![img.png](src/main/kotlin/luke/day08/frimerke_rod_1.png)
+
 
 **Answer:**<br />
 x

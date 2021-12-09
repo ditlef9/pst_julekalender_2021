@@ -12,6 +12,20 @@ import luke.day07.Day07
  */
 
 
+
+/*
+En av alvebetjentene fant et løst frimerke i postmottaket.
+Initielle undersøkelser viser at det ikke kan ha sittet på julekortet som kom den 3. desember,
+da fiberne som sitter igjen i limet ikke er av samme type som julekortet.
+
+Fiberne kan minne om setetrekket fra en reinsdyrslede klasse 8.
+
+Motivet på frimerket er av en slik karakter at det må undersøkes nærmere.
+
+Kan du ta en titt?
+ */
+
+
 fun main() {
     Day08().run()
 }
