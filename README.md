@@ -17,7 +17,21 @@ PST xmas calendar 2020 solution is located here: https://github.com/ditlef9/pst_
 Go to Main.kt and click Shift+F10 to run code.
 
 ---
-## Luke 1 - eksempel_bakgrunnsbilde.png - Least Significant Bit Steganography
+Contents
+
+* [Luke 1 - eksempel_bakgrunnsbilde.png - Least Significant Bit Steganography](##-luke-1---eksempel_bakgrunnsbilde.png---least-significant-bit-teganography)
+* Luke 2 - huskelapp_til_2021.txt - Polyline Coordinate Message
+* Luke 3 - julekort_framsiden.jpg - Pigpen cipher decoder
+* Luke 4 - verksted_npst.txt - Krøll på verkstedet
+* Luke 5 - vareliste - SQL injection
+* Luke 6 - Day off
+* Luke 7 - AES encrypted message
+* Luke 8 - frimerke.png -
+* Luke 9 - npst_02_12_21_18_00.pcap -
+* Luke 10 - -
+
+---
+## Luke 1 - eksempel_bakgrunnsbilde.png - Least Significant Bit Steganography ##
 
 **Assignment:**<br />
 I en melding får du bildet "eksempel_bakgrunnsbilde.png". 
@@ -177,11 +191,16 @@ Motivet på frimerket er av en slik karakter at det må undersøkes nærmere. Ka
 
 
 **Solution:**<br />
+
+<b><em>1) Finn RGB deler av bildet</b></em>
+
 Ved å laste opp frimerke til https://aperisolve.fr/745da5c08083c8fbbfa4b98e6be527ef
 vil man få kun rød, blå og grønn versjon av frimerket.
 
 Rød:<br />
 ![img.png](src/main/kotlin/luke/day08/frimerke_red_layer_0.png)
+
+> b0 XOR S8("Frimerke\x00...")
 
 Grønn:<br />
 ![img.png](src/main/kotlin/luke/day08/frimerke_green_layer_0.png)
@@ -189,7 +208,54 @@ Grønn:<br />
 Blå:<br />
 ![img.png](src/main/kotlin/luke/day08/frimerke_blue_layer_0.png)
 
-Rødt lag forteller at Grønt og Blått skal kombineres.
+
+<b><em>2) Konverter grønn til desimal</b></em>
+
+Last opp grønt bilde til https://www.dcode.fr/binary-image <br />
+Da får man ut følgende binære tekst:
+
+[frimerke_green_layer_0_binary.txt](src/main/kotlin/luke/day08/frimerke_green_layer_0_binary.txt)
+
+
+
+<b><em>3) Konverter desimal til ASCII</b></em>
+
+Last opp desimal til
+https://gchq.github.io/CyberChef/#recipe=From_Binary('Space',8)
+for å få ut ASCII.
+
+```
+.SLEDE8¡.±.x.V................................................................ñ.º.º.ú.º.º.U¿.¯Ù...1.A.Z.Ú.U³ú.Ú.7C9.U³ú.Ú...!.a.s.U`...µq.5us...q.Ev.eZ.q.5u.R....e¸W¸Y.s...a..e5µs.U°..q.Ev.¶.eZ..R..!.s.U0e°...µq.5us.U0..q.Ev.eZ.q.5u.R....e¸W¸Y.s.U0..a..e5µs.U0U°..q.Ev.¶.eZ..R..!.s.U0e°...µq.5us.U0..q.Ev.eZ.q.5u.R....e¸W¸Y.s.U0..a..e5µs.U°..q.Ev.¶.eZ..R..s.U0....c...EV.¶R...s.U0..r.e·Eua..eZ.r.5u.R..1.A s.U0....U³'Cù...s.1.A s.U0...
+s.U0..U³'CY...s.1.A s.U0....U³'C.
+```
+
+Dette skal da lagres som
+[txt.s8](src/main/kotlin/luke/day08/txt.s8) og lastes opp i Slede8 debugger.
+
+
+<b><em>4) Last ned og installer Slede8 debugger</b></em>
+
+* Last ned og installerer Go.
+* git clone https://github.com/julebokk/slede8dbg.git
+* cd slede8dbg
+* go build .
+
+
+<b><em>5) Debugg programmet</b></em>
+
+Du må ha installert wsl i Windows for å kjøre disse kommandoene. Dette gjøres ved å starte
+Windows Powershell som administrator og skrive
+
+>wsl --install
+
+Debug slede8 programmet:
+* $ ./slede8dbg debug ./day08/txt.s8
+* $ ./slede8dbg debug ./day08/example.asm # compiles it for you
+* $ ./slede8dbg debug --input 9090cd219090 ./day08/txt.s8
+
+
+
+
 
 **Answer:**<br />
 x
@@ -199,10 +265,16 @@ x
 ## Luke 9 - npst_02_12_21_18_00.pcap  -
 
 **Assignment:**<br />
-Fikk tilsendt denne filen fra IT-avdelingen i går, de har TAPpet filen ut av nettverket. Har du mulighet til å se på den? Mulig den gir oss litt mer informasjon angående lekkasjen vi hadde ut til SPST. Husk, dette forblir mellom oss, i tilfelle det viser seg å være en av våre egne.
+Fikk tilsendt denne filen fra IT-avdelingen i går, 
+de har <b>TAP</b>pet filen ut av nettverket. 
+Har du mulighet til å se på den? 
+Mulig den gir oss litt mer informasjon angående lekkasjen vi hadde ut til SPST. 
+
+Husk, dette forblir mellom oss, i tilfelle det viser seg å være en av våre egne.
 
 **Solution:**<br />
-?
+TAP står for å tappe nettverk (A network tap is a system that monitors events on a local network).
+
 
 **Answer:**<br />
 x
