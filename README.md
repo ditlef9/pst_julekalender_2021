@@ -261,7 +261,6 @@ Debug slede8 programmet:
 Du vil da få følgende instrukser:
 ![06_slede_8_output.PNG](src/main/kotlin/luke/day08/06_slede_8_output.PNG)
 
-
 <b><em>6) Legg inn føden:</b></em>
 
 Føden finner vi ved å konvertere det blå bildet til desimal og deretter ASCII 
