@@ -198,27 +198,27 @@ Ved å laste opp frimerke til https://aperisolve.fr/745da5c08083c8fbbfa4b98e6be5
 vil man få kun rød, blå og grønn versjon av frimerket.
 
 Rød:<br />
-![img.png](src/main/kotlin/luke/day08/frimerke_red_layer_0.png)
+![img.png](src/main/kotlin/luke/day08/02_frimerke_red_layer_0.png)
 
 > b0 XOR S8("Frimerke\x00...")
 
 Grønn:<br />
-![img.png](src/main/kotlin/luke/day08/frimerke_green_layer_0.png)
+![img.png](src/main/kotlin/luke/day08/02_frimerke_green_layer_0.png)
 
 Blå:<br />
-![img.png](src/main/kotlin/luke/day08/frimerke_blue_layer_0.png)
+![img.png](src/main/kotlin/luke/day08/02_frimerke_blue_layer_0.png)
 
 
 <b><em>2) Konverter grønn til desimal</b></em>
 
 Last opp grønt bilde til https://www.dcode.fr/binary-image <br />
-Da får man ut følgende binære tekst:
+Da får man ut følgende binære tekst. Kutt ut alle 0-ene som slutter i filen.
 
-[frimerke_green_layer_0_binary.txt](src/main/kotlin/luke/day08/frimerke_green_layer_0_binary.txt)
+[03_frimerke_green_layer_0_binary.txt](src/main/kotlin/luke/day08/03_frimerke_green_layer_0_binary.txt)
 
 
 
-<b><em>3) Konverter desimal til ASCII</b></em>
+<b><em>3) Konverter desimal til ASCII (fra det grønne bildet)</b></em>
 
 Last opp desimal til
 https://gchq.github.io/CyberChef/#recipe=From_Binary('Space',8)
@@ -230,12 +230,23 @@ s.U0..U³'CY...s.1.A s.U0....U³'C.
 ```
 
 Dette skal da lagres som
-[txt.s8](src/main/kotlin/luke/day08/txt.s8) og lastes opp i Slede8 debugger.
+[05_txt.s8](05_txt.s8) og lastes opp i Slede8 debugger.
 
 
-<b><em>4) Last ned og installer Slede8 debugger</b></em>
+<b><em>4) Installer WLS (for Windows)</b></em>
 
-* Last ned og installerer Go.
+Du må ha installert wsl i Windows for å kjøre disse kommandoene. Dette gjøres ved å starte
+Windows Powershell som administrator og skrive
+
+> wsl --install
+>
+> Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+
+<b><em>5) Last ned Slede8 debugger</b></em>
+
+Åpne wls og last ned og installer Slede8 debugger fra kommandolinjen:
+
+* apt install golang-go
 * git clone https://github.com/julebokk/slede8dbg.git
 * cd slede8dbg
 * go build .
@@ -243,19 +254,22 @@ Dette skal da lagres som
 
 <b><em>5) Debugg programmet</b></em>
 
-Du må ha installert wsl i Windows for å kjøre disse kommandoene. Dette gjøres ved å starte
-Windows Powershell som administrator og skrive
-
->wsl --install
-
 Debug slede8 programmet:
-* $ ./slede8dbg debug ./day08/txt.s8
-* $ ./slede8dbg debug ./day08/example.asm # compiles it for you
-* $ ./slede8dbg debug --input 9090cd219090 ./day08/txt.s8
+
+` $ ./slede8dbg debug ./txt.s8`
+
+Du vil da få følgende instrukser:
+![06_slede_8_output.PNG](src/main/kotlin/luke/day08/06_slede_8_output.PNG)
 
 
+<b><em>6) Legg inn føden:</b></em>
 
+Føden finner vi ved å konvertere det blå bildet til desimal og deretter ASCII 
 
+* https://www.dcode.fr/binary-image
+* https://gchq.github.io/CyberChef/#recipe=From_Binary('Space',8)
+
+`./slede8dbg debug --input 9090cd219090 ./txt.s8`
 
 **Answer:**<br />
 x

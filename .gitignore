@@ -2,3 +2,4 @@
 .idea
 build
 local.properties
+src/main/kotlin/luke/day08/slede8dbg
